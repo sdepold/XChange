@@ -1,0 +1,15 @@
+{
+  "status": "Finished",
+  "transactions": [
+    {
+      "usd": "500.00",
+      "btc_usd": "0.00",
+      "datetime": "2018-01-03 21:35:52",
+      "fee": "0.00",
+      "btc": "0.00000000",
+      "type": "None",
+      "id": 41286135,
+      "eur": 0
+    },
+  ]
+}

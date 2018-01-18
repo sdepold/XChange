@@ -142,7 +142,9 @@ public final class BitstampUserTransaction {
     deposit, withdrawal, trade, rippleWithdrawal, rippleDeposit, subAccountTransfer;
 
     @JsonCreator
-    public static TransactionType fromString(int type) {
+    public static TransactionType fromString(String typeString) {
+      Integer type = typeString.equals("None") ? 2 : Integer.parseInt(typeString);
+
       switch (type) {
         case 0:
           return deposit;

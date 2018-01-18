@@ -30,9 +30,29 @@ public class BitstampAdapterTests {
 
 
         assertThat(order.getId()).isEqualTo("123");
-        assertThat(order.getAveragePrice()).isEqualTo(new BigDecimal("256.08000000"));
+        assertThat(order.getAveragePrice()).isEqualTo(new BigDecimal("256.081000000"));
         assertThat(order.getCumulativeAmount()).isEqualTo(new BigDecimal("0.20236360"));
         assertThat(order.getCurrencyPair()).isEqualTo(CurrencyPair.LTC_USD);
+
+    }
+
+    @Test
+    public void testAdapterCryptoCurrencyPurchase() throws IOException {
+
+        // Read in the JSON from the example resources
+        InputStream is = BitstampAdapters.class.getResourceAsStream("/order/example-crypto-currency-purchase.json");
+
+        // Use Jackson to parse it
+        ObjectMapper mapper = new ObjectMapper();
+        BitstampOrderStatusResponse cryptoCurrencyPurchaseResult = mapper.readValue(is, BitstampOrderStatusResponse.class);
+
+        BitstampGenericOrder order = BitstampAdapters.adaptOrder("123", cryptoCurrencyPurchaseResult);
+
+
+        assertThat(order.getId()).isEqualTo("123");
+        assertThat(order.getAveragePrice()).isEqualTo(new BigDecimal("5100"));
+        assertThat(order.getCurrencyPair()).isEqualTo(CurrencyPair.LTC_USD);
+        assertThat(order.getType()).isEqualTo(TransactionType.withdrawal);
 
     }
 
