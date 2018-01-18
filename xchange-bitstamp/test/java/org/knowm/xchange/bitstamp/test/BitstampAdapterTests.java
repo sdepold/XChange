@@ -30,7 +30,7 @@ public class BitstampAdapterTests {
 
 
         assertThat(order.getId()).isEqualTo("123");
-        assertThat(order.getAveragePrice()).isEqualTo(new BigDecimal("256.081000000"));
+        assertThat(order.getAveragePrice()).isEqualTo(new BigDecimal("256.08000000"));
         assertThat(order.getCumulativeAmount()).isEqualTo(new BigDecimal("0.20236360"));
         assertThat(order.getCurrencyPair()).isEqualTo(CurrencyPair.LTC_USD);
 
